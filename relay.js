@@ -34,7 +34,13 @@ export default {
       }
 
       const outgoing = new FormData();
-      outgoing.append("chat_id", chatId);
+    outgoing.append("chat_id", chatId);
+
+    const caption = incoming.get("caption");
+      if (typeof caption === "string" && caption.length > 0) {
+        outgoing.append("caption", caption);
+    }
+
       outgoing.append("photo", photo, photo.name || "screen.png");
 
       const telegramResponse = await fetch(
