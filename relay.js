@@ -38,7 +38,7 @@ export default {
       outgoing.append("photo", photo, photo.name || "screen.png");
 
       const telegramResponse = await fetch(
-        https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendPhoto,
+        `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendPhoto`,
         {
           method: "POST",
           body: outgoing
